@@ -5,6 +5,10 @@
   "type": "module",
   "main": "dist/index.cjs",
   "types": "dist/index.d.ts",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "prepublishOnly": "npm run build",
     "build-old": "tsc -p tsconfig.json --declaration",
