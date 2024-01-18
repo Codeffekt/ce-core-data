@@ -234,6 +234,7 @@ export interface FormMutate {
     indices?: IndexType[];
     elts?: FormInstance[];
     root?: IndexType;
+    rootField?: IndexType;
     ref?: IndexType;
     formArrayField?: string;
     formEltField?: string;
