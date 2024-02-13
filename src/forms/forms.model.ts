@@ -78,6 +78,7 @@ export interface FormInstanceBase extends CoreIndexElt {
     content: { [field: string]: FormBlock };
     table?: string;
     version?: FormVersion;
+    type?: IndexType; // used to group different roots id
 }
 
 export interface FormInstance extends FormInstanceBase {
