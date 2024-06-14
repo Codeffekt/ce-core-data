@@ -8,6 +8,8 @@ import {
     FORM_MASK_ROOT, FORM_STYLE_ROOT
 } from "./forms.model";
 
+const ALLOWED_META_FIELDS = ['root', 'title', 'id', 'ctime', 'mtime', 'author', 'valid', 'table', 'type', 'version'];
+
 /**
  * Utility functions to manager Forms parts
  */
@@ -125,4 +127,21 @@ export class FormUtils {
                 return block?.value ?? '';
             });
     }
+
+    static retrieveBlockFromField(formInstance: FormInstanceExt, field: string): FormBlock {
+        if (field.startsWith('$')) {
+          const metaField = field.slice(1);
+          return ALLOWED_META_FIELDS.includes(metaField) ?
+            { value: formInstance[metaField], type: "text", field: metaField } :
+            { value: "-", type: "text", field: metaField };
+        } else if (field.startsWith('#')) {
+          const aggField = `agg_${field.slice(1)}`;
+          return formInstance.fields ? { value: (<any>formInstance).fields[aggField], type: "text", field } :
+            { value: "-", type: "text", field };
+        }
+        const elts = field.split(".", 2);
+        const formBlock = elts.length === 1 ? formInstance.content[elts[0]] :
+          FormUtils.getFormField(elts[0], formInstance)?.content[elts[1]];
+        return formBlock;
+      }
 }
