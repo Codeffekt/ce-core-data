@@ -116,10 +116,10 @@ export class FormUtils {
         return this.parseValue(root, root.title);
     }
 
-    static parseValue(form: FormRoot, value: string) {        
+    static parseValue(form: FormRoot, value: string) {
         return value.replace(/{(\$?\w+)}/g,
             (_, field) => {
-                if(field.startsWith('$')) {
+                if (field.startsWith('$')) {
                     const metaField = field.slice(1);
                     return form[metaField] ?? '';
                 }
@@ -128,20 +128,29 @@ export class FormUtils {
             });
     }
 
-    static retrieveBlockFromField(formInstance: FormInstanceExt, field: string): FormBlock {
+    static isFormInstanceExt(form: FormInstanceExt | FormRoot): form is FormInstanceExt {
+        return (<FormInstanceExt>form).fields !== undefined;
+    }
+
+    static retrieveBlockFromField(formInstance: FormInstanceExt | FormRoot, field: string): FormBlock {
         if (field.startsWith('$')) {
-          const metaField = field.slice(1);
-          return ALLOWED_META_FIELDS.includes(metaField) ?
-            { value: formInstance[metaField], type: "text", field: metaField } :
-            { value: "-", type: "text", field: metaField };
-        } else if (field.startsWith('#')) {
-          const aggField = `agg_${field.slice(1)}`;
-          return formInstance.fields ? { value: (<any>formInstance).fields[aggField], type: "text", field } :
-            { value: "-", type: "text", field };
+            const metaField = field.slice(1);
+            return ALLOWED_META_FIELDS.includes(metaField) ?
+                { value: formInstance[metaField], type: "text", field: metaField } :
+                { value: "-", type: "text", field: metaField };
+        } else if (this.isFormInstanceExt(formInstance)) {
+            if (field.startsWith('#')) {
+                const aggField = `agg_${field.slice(1)}`;
+                return formInstance.fields ? { value: (<any>formInstance).fields[aggField], type: "text", field } :
+                    { value: "-", type: "text", field };
+            } else {
+                const elts = field.split(".", 2);
+                const formBlock = elts.length === 1 ? formInstance.content[elts[0]] :
+                    FormUtils.getFormField(elts[0], formInstance)?.content[elts[1]];
+                return formBlock;
+            }
+        } else {
+            return formInstance.content[field];
         }
-        const elts = field.split(".", 2);
-        const formBlock = elts.length === 1 ? formInstance.content[elts[0]] :
-          FormUtils.getFormField(elts[0], formInstance)?.content[elts[1]];
-        return formBlock;
-      }
+    }
 }
