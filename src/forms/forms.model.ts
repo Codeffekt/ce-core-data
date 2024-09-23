@@ -15,7 +15,7 @@ export type FormBlockType = "text" | "select"
     | "coordinates" | "index" | "formArray"
     | "formAssoc" | "mask" | "asset"
     | "barcode" | "object" | "style"
-    | "assetArray";
+    | "assetArray" | "root";
 
 export interface FormBlock {
     field: string;
@@ -78,6 +78,7 @@ export interface FormInstanceBase extends CoreIndexElt {
     content: { [field: string]: FormBlock };
     table?: string;
     version?: FormVersion;
+    type?: IndexType; // used to group different roots id
 }
 
 export interface FormInstance extends FormInstanceBase {
@@ -234,6 +235,7 @@ export interface FormMutate {
     indices?: IndexType[];
     elts?: FormInstance[];
     root?: IndexType;
+    rootField?: IndexType;
     ref?: IndexType;
     formArrayField?: string;
     formEltField?: string;
