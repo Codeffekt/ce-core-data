@@ -15,7 +15,7 @@ export type FormBlockType = "text" | "select"
     | "coordinates" | "index" | "formArray"
     | "formAssoc" | "mask" | "asset"
     | "barcode" | "object" | "style"
-    | "assetArray" | "root";
+    | "assetArray" | "root" | "rootArray";
 
 export interface FormBlock {
     field: string;
