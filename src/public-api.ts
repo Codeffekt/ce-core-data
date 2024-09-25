@@ -20,4 +20,5 @@ export * from './processing';
 export * from './sharing';
 export * from './app';
 export * from './template';
+export * from './space';
 
