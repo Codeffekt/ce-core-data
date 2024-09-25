@@ -1,12 +1,12 @@
 import { FormRoot } from "../forms/forms.model";
 
-export interface SpacesEditorNodeLayoutConfig {
+export interface SpacesEditorNodeLayout {
     id: string;
     coords: SpacesEditorVector2;
 }
 
-export interface SpacesEditorLayoutConfig {
-    nodes: SpacesEditorNodeLayoutConfig[];
+export interface SpacesEditorLayout {
+    nodes: SpacesEditorNodeLayout[];
 }
 
 export interface SpacesEditorVector2 {
@@ -25,6 +25,6 @@ export interface SpacesEditorFormatContext {
 export class SpacesEditorFormat {
     context: SpacesEditorFormatContext;    
     forms: FormRoot[];
-    layout: SpacesEditorLayoutConfig;
+    layout: SpacesEditorLayout;
 }
 
