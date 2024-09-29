@@ -21,7 +21,7 @@ export interface SpacesEditorFormatContext {
     mtime: number;
     version: string;
     author: string;
-    entryPoint: IndexType;
+    entryPoint?: IndexType;
 }
 
 export class SpacesEditorFormat {
