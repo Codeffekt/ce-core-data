@@ -1,4 +1,5 @@
 import { FormRoot } from "../forms/forms.model";
+import { IndexType } from "../public-api";
 
 export interface SpacesEditorNodeLayout {
     id: string;
@@ -20,6 +21,7 @@ export interface SpacesEditorFormatContext {
     mtime: number;
     version: string;
     author: string;
+    entryPoint: IndexType;
 }
 
 export class SpacesEditorFormat {

@@ -2,6 +2,7 @@ import { IndexType } from "../core/core.model";
 import { FormBlockEntity, FormRootEntity } from "../forms/FormRoot";
 import { FormInstance, FormRoot } from "../forms/forms.model";
 import { FormWrapper } from "../forms/FormWrapper";
+import { FormUtils } from "../forms/FormUtils";
 import { SpacesEditorVector2 } from "./SpacesEditorFormat";
 
 @FormRootEntity({ id: FormSpaceEditorNodeLayout.ROOT, title: "Form space editor node layout" })
@@ -35,6 +36,9 @@ export class FormSpaceEditorFormatContext {
     
     @FormBlockEntity({ type: "text"})
     version: string;    
+
+    @FormBlockEntity({ type: "formArray"})
+    entryPoint: FormInstance[];    
 }
 
 @FormRootEntity({ id: FormSpaceEditorFormat.ROOT, title: "Form Space Editor Format" })
@@ -59,7 +63,7 @@ export class FormSpaceEditorFormatWrapper extends FormWrapper<FormSpaceEditorFor
     }
 
     getRootsRef() {
-        return `forms-${this.core.id}`;
+        return FormUtils.createFormAssocRef(this.core.id, "forms");
     }
     
 }
@@ -79,7 +83,7 @@ export class FormSpaceEditorLayoutWrapper extends FormWrapper<FormSpaceEditorLay
     }   
 
     getNodesRef() {
-        return `nodes-${this.core.id}`;
+        return FormUtils.createFormAssocRef(this.core.id, "nodes");
     }
 }
 
