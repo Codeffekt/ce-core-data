@@ -16,7 +16,7 @@ export type FormBlockType = "text" | "select"
     | "formAssoc" | "mask" | "asset"
     | "barcode" | "object" | "style"
     | "assetArray" | "root" | "rootArray"
-    | "factory";
+    | "factory" | "action";
 
 export interface FormBlock {
     field: string;
@@ -213,7 +213,7 @@ export interface FormQuery {
     sortRootFields?: FormQuerySortField[];
 }
 
-export type FormMutateType = 'form' | 'formArray' | 'formAssoc';
+export type FormMutateType = 'form' | 'formArray' | 'formAssoc' | 'factory';
 
 export type FormMutateOp = 'create' | 'update' | 'delete' | 'fork' | 'add' | 'upgrade';
 
