@@ -1,5 +1,7 @@
 # CeCoreData Changelog
 
+## [1.2.0] Add factory and action block types
+
 ## [1.1.9] Add entry point in space editor format
 
 ## [1.1.6] Add space editor format
