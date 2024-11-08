@@ -1,4 +1,4 @@
-import { IndexType } from "../public-api";
+import { IndexType } from "../core/core.model";
 
 export type FormEventType = "update";
 
