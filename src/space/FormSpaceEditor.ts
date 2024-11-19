@@ -37,8 +37,8 @@ export class FormSpaceEditorFormatContext {
     @FormBlockEntity({ type: "text"})
     version: string;    
 
-    @FormBlockEntity({ type: "formArray"})
-    entryPoint: FormInstance[];    
+    @FormBlockEntity({ type: "root"})
+    entryPoint: IndexType;    
 }
 
 @FormRootEntity({ id: FormSpaceEditorFormat.ROOT, title: "Form Space Editor Format" })
