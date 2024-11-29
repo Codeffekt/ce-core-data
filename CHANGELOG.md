@@ -1,5 +1,7 @@
 # CeCoreData Changelog
 
+## [1.2.3] Add root params for display fields
+
 ## [1.2.2] Fix form space editor context entry point is now of root type
 
 ## [1.2.1] Add form event type

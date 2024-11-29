@@ -74,12 +74,17 @@ export interface FormVersion {
     author?: IndexType; // who made the changes could be != form author
 }
 
+export interface FormInstanceBaseParams {
+    fields?: string[];
+}
+
 export interface FormInstanceBase extends CoreIndexElt {
     title: string;
     content: { [field: string]: FormBlock };
     table?: string;
     version?: FormVersion;
     type?: IndexType; // used to group different roots id
+    params?: FormInstanceBaseParams;
 }
 
 export interface FormInstance extends FormInstanceBase {
