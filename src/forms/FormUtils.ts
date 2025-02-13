@@ -51,6 +51,14 @@ export class FormUtils {
         return (form.fields && form.fields[fieldName] as FormInstance) || undefined;
     }
 
+    static setFormField(fieldName: string, form: FormInstanceExt, value: FormInstance | FormWrapper<any> | FormInstance[]) {
+        form.fields = {
+            ...form.fields,
+            [fieldName]: value
+        };
+        return form;        
+    }
+
     static getBlocks(form: FormRoot): FormBlock[] {
         return form.content instanceof Array ? form.content : Object.values(form.content);
     }

@@ -12,6 +12,7 @@
   "scripts": {
     "prepublishOnly": "npm run build",
     "build-old": "tsc -p tsconfig.json --declaration",
+    "watch": "rollup -c rollup.config.js --watch",
     "build": "rollup -c rollup.config.js"
   },
   "files": [

@@ -96,7 +96,7 @@ export interface FormInstance extends FormInstanceBase {
 export interface FormInstanceExt extends FormInstance {
     forms?: FormInstance[];
     fields?: {
-        [field: string]: FormInstance | FormWrapper<any>;
+        [field: string]: FormInstance | FormWrapper<any> | FormInstance[];
     };
 }
 
