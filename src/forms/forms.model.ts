@@ -98,6 +98,9 @@ export interface FormInstanceExt extends FormInstance {
     fields?: {
         [field: string]: FormInstance | FormWrapper<any> | FormInstance[];
     };
+    nodes?: {
+        [field: string]: FormInstance;
+    }
 }
 
 export type FormRoot = FormInstanceBase;
@@ -192,6 +195,12 @@ export interface FormFilter {
     op?: "=" | "!=";
 }
 
+export interface FormNode {
+    field: string;
+    root: string;
+    name: string;
+}
+
 export interface FormQuery {
     ref?: IndexType;
     refs?: IndexType[];
@@ -206,6 +215,7 @@ export interface FormQuery {
     queryFields?: FormQueryFieldLogic | FormQueryFieldExpr[];
     aggFields?: FormAggField[];
     filters?: FormFilter[];
+    nodes?: FormNode[];
     limit?: number;
     offset?: number;
     sortFields?: FormQuerySortField[];

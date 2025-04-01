@@ -71,7 +71,15 @@ export class FormInstanceMaskWrapper extends FormWrapper<FormInstanceMask> {
         this.props.mask.content[field] = {
             ...this.props.mask.content[field],
             params
-        }
+        };
+        return this;
+    }
+
+    setFieldReadonly(field: string, readonly: boolean) {
+        this.props.mask.content[field] = {
+            ...this.props.mask.content[field],
+            readonly,
+        };
         return this;
     }
 

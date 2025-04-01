@@ -59,6 +59,10 @@ export class FormUtils {
         return form;        
     }
 
+    static getFormNode(fieldName: string, form: FormInstanceExt): FormInstance | undefined {
+        return (form.nodes && form.nodes[fieldName]);
+    }
+
     static getBlocks(form: FormRoot): FormBlock[] {
         return form.content instanceof Array ? form.content : Object.values(form.content);
     }
@@ -122,6 +126,10 @@ export class FormUtils {
         }
 
         return this.parseValue(root, root.title);
+    }
+
+    static isMetaField(field: string) {
+        return field.startsWith('$');
     }
 
     static parseValue(form: FormRoot, value: string) {
