@@ -251,6 +251,10 @@ export class FormWrapper<T = any> {
         return (<FormInstance>(<FormInstanceExt>this.core).fields[field]);
     }
 
+    getInstanceFromNode(field: string): FormInstance {
+        return (<FormInstanceExt> this.core).nodes[field];
+    }
+
     haveProp(propName: string): boolean {
         return (<any>this.props)[propName] !== undefined;
     }
