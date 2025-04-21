@@ -38,6 +38,6 @@
     "eslint": "^8.13.0",
     "rollup": "^2.79.1",
     "tslib": "^2.2.0",
-    "typescript": "^5.7.3"
+    "typescript": "^5.8.2"
   }
 }
