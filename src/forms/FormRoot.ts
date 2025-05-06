@@ -1,5 +1,6 @@
 import { IndexType } from "../core/core.model";
-import { FormBlock, FormInstance, FormInstanceBase } from "./forms.model";
+import { FormBlock } from "./blocks/FormBlock";
+import { FormInstance, FormInstanceBase } from "./forms.model";
 
 export interface IFormRootEntity {
     _formBase: FormInstanceBase;

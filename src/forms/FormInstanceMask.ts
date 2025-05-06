@@ -1,7 +1,8 @@
 import { IndexType } from "../core/core.model";
+import { FormBlock } from "./blocks/FormBlock";
 import { FormBlockEntity, FormRootEntity } from "./FormRoot";
 import {
-    FormBlock, FormInstance,
+    FormInstance,
     FormMask, FormStyle,
     FormStyleCard, FORM_MASK_ROOT
 } from "./forms.model";

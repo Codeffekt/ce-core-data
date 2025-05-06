@@ -1,7 +1,8 @@
-import { FormRoot, FormInstance, FormBlock, FormInstanceExt } from "./forms.model";
+import { FormRoot, FormInstance, FormInstanceExt } from "./forms.model";
 import { CoreIndexElt } from "../core/core.model";
 import { AccountSettings } from "../account/account.model";
 import { FormUtils } from "./FormUtils";
+import { FormBlock } from "./blocks/FormBlock";
 
 interface OpsElt {
     key: string;

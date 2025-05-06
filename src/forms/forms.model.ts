@@ -1,4 +1,5 @@
 import { CoreIndexElt, IndexType } from "../core/core.model";
+import { FormBlock } from "./blocks/FormBlock";
 import { FormWrapper } from "./FormWrapper";
 
 export const FORM_BLOCK_TYPE_INDEX = "index";
@@ -10,49 +11,12 @@ export const FORM_BLOCK_TYPE_ASSET_ARRAY = "assetArray";
 export const FORM_MASK_ROOT = "forms-mask";
 export const FORM_STYLE_ROOT = "forms-style";
 
-export type FormBlockType = "text" | "select"
-    | "number" | "boolean" | "timestamp"
-    | "coordinates" | "index" | "formArray"
-    | "formAssoc" | "mask" | "asset"
-    | "barcode" | "object" | "style"
-    | "assetArray" | "root" | "rootArray"
-    | "factory" | "action";
-
-export interface FormBlock {
-    field: string;
-    label?: string;
-    unit?: string;
-    value?: any;
-    root?: IndexType;
-    index?: IndexType;
-    defaultValue?: any;
-    description?: string;
-    type?: FormBlockType;
-    params?: any;
-    required?: boolean; // default true
-    disabled?: boolean; // default false
-    readonly?: boolean; // default false
-    hint?: string;
-}
-
 export interface FormBlockSelectOption<T = string | number> {
     label: string;
     value: T;
 }
 export interface FormBlockSelectParams {
     options: FormBlockSelectOption[];
-}
-
-export interface FormBlockValidator {
-    id: string;
-    params?: any;
-}
-export interface FormBlockNumberParams {
-    signed: boolean;
-    nullable: boolean;
-    decimal: boolean;
-    digits: number;
-    validators: FormBlockValidator[];
 }
 
 export interface FormCreator {
@@ -83,7 +47,7 @@ export interface FormInstanceBase extends CoreIndexElt {
     content: { [field: string]: FormBlock };
     table?: string;
     version?: FormVersion;
-    type?: IndexType; // used to group different roots id
+    cat?: IndexType; // used to group different roots id
     params?: FormInstanceBaseParams;
 }
 
