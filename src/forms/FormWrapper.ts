@@ -253,7 +253,7 @@ export class FormWrapper<T = any> {
     }
 
     getInstanceFromNode(field: string): FormInstance {
-        return (<FormInstanceExt> this.core).nodes[field];
+        return (<FormInstanceExt>this.core).nodes[field];
     }
 
     haveProp(propName: string): boolean {
@@ -295,5 +295,16 @@ export class FormWrapper<T = any> {
         newWrapper.author = this.author;
         newWrapper.fields = this.fields;
         return newWrapper;
+    }
+
+    getPropsWithFields() {
+        const fieldsProps: [string, any][] = Object.entries(
+            FormUtils.isFormInstanceExt(this.core) ? this.core.fields : {})
+            .map(([key, value]) => [key, FormWrapper.fromForm(value as FormInstance).getPropsWithId()]);        
+
+        return fieldsProps.reduce((prev, cur) => ({
+            ...prev,
+            [cur[0]]: cur[1],
+        }), this.getPropsWithId());
     }
 }
