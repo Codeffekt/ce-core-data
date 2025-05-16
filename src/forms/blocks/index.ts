@@ -5,4 +5,5 @@ export * from './FormBlockArray';
 export * from './FormBlockAsset';
 export * from './FormBlockText';
 export * from './FormBlockObject';
+export * from './FormBlockRoot';
 export * from './FormBlock';

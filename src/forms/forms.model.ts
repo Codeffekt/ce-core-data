@@ -221,3 +221,9 @@ export interface FormMutate {
     formEltField?: string;
     fields?: FormMutateFields;
 }
+
+export interface FormsBatchData {
+    main?: FormInstance;
+    forms: FormInstance[];
+    assocs: FormAssoc[];
+}
