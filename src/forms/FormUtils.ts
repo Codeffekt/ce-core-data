@@ -5,8 +5,7 @@ import {
     FormInstanceExt, FormQueryField, FormRoot,
     FORM_BLOCK_TYPE_FORM_ARRAY,
     FORM_BLOCK_TYPE_INDEX,
-    FORM_MASK_ROOT, FORM_STYLE_ROOT
-} from "./forms.model";
+    FORM_MASK_ROOT, FORM_STYLE_ROOT} from "./forms.model";
 import { FormBlock } from "./blocks/FormBlock";
 
 const ALLOWED_META_FIELDS = ['root', 'title', 'id', 'ctime', 'mtime', 'author', 'valid', 'table', 'type', 'version'];
@@ -14,7 +13,11 @@ const ALLOWED_META_FIELDS = ['root', 'title', 'id', 'ctime', 'mtime', 'author', 
 /**
  * Utility functions to manager Forms parts
  */
-export class FormUtils {
+export class FormUtils {    
+
+    static isFormInstance(form: any): form is FormInstance {
+        return (<any>form).content !== undefined;
+    }
 
     static isBlockIndex(block: FormBlock): boolean {
         return block && block.type === FORM_BLOCK_TYPE_INDEX;
