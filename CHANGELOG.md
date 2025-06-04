@@ -1,5 +1,7 @@
 # CeCoreData Changelog
 
+## [1.2.6] Block object types, Form category
+
 ## [1.2.5] Add FormQuery nodes
 
 ## [1.2.3] Add root params for display fields
