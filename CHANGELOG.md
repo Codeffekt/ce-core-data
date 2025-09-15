@@ -1,5 +1,7 @@
 # CeCoreData Changelog
 
+## [1.2.7] Add extra query to array block parameters
+
 ## [1.2.6] Block object types, Form category
 
 ## [1.2.5] Add FormQuery nodes

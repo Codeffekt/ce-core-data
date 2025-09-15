@@ -1,4 +1,5 @@
 import { IndexType } from "../../core/core.model";
+import { FormQuery } from "../forms.model";
 import { FormBlock } from "./FormBlock";
 
 export interface FormBlockArrayParams {
@@ -6,6 +7,7 @@ export interface FormBlockArrayParams {
     ref?: IndexType;
     fields?: IndexType[];
     scope?: "global";
+    query?: FormQuery;
 }
 
 export interface FormBlockArray extends FormBlock<void> {        
