@@ -163,6 +163,7 @@ export interface FormNode {
     field: string;
     root: string;
     name: string;
+    queryFields?: FormQueryFieldLogic | FormQueryFieldExpr[];
 }
 
 export interface FormQuery {
